@@ -18,7 +18,7 @@ def griewank(solution: list) -> float:
         
     return summation - product_notaion + 1
 
-print(griewank(solution))
+# print(griewank(solution))
 
 # Computes the Strength of all Fitness Value of each solution, not Strength of all Solutions.
 def strength(solution: list, optimal) -> list:
@@ -34,4 +34,4 @@ def strength(solution: list, optimal) -> list:
     
     return strength
 
-print(strength(fitness_value, optimal_function))
+# print(strength(fitness_value, optimal_function))
