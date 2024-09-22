@@ -2,8 +2,8 @@ import math
 import random
 
 # Constants
-solution = [2.1176, -7.2032, -5.60033, -2.83838, 9.40210]
-fitness_value = [1.060184, 1.029211, 1.160927, 1.245041, 1.002926]
+# solution = [2.1176, -7.2032, -5.60033, -2.83838, 9.40210]
+# fitness_value = [1.060184, 1.029211, 1.160927, 1.245041, 1.002926]
 optimal_function = 0.0
 
 def random_decision(lb, ub):
