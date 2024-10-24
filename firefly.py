@@ -62,9 +62,9 @@ print(f"\n{40*"-"} Less Attractive {40*"-"}")
 print(f"Firefly {sorted_firefly.iloc[-1].name}: {x_i_notbetter}")
 
 summation = 0 
-attractiveness_param = 1    
-light_absorption_coeff = 1     
-levy_flight_param = 1       
+attractiveness_param = 1.0   
+light_absorption_coeff = 1.0     
+levy_flight_param = 2.0       
 t = 1
 random_param = random.random() 
 
