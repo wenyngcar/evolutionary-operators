@@ -15,7 +15,6 @@ def griewank(solution: list) -> float:
     return summation - product_notaion + 1
 
 population = []
-solution = []
 dimension = 5
 pop_size = 10
 
@@ -25,12 +24,10 @@ for j in range(pop_size):
         solution.append(random_decision(-10, 10))
 
     population.append(solution)
-    print(f"solution {j+1} at t=1: {population[j]}")
 
 fitness_values = []
 for k in range(pop_size):
     fitness_values.append(griewank(population[k]))
-    print(f"fitness values: {k+1} : {fitness_values[k]}")
 
 solfit = []
 dec_var = []
@@ -48,25 +45,28 @@ for i in range(pop_size):
 dec_var.append("fitness")
 df = pd.DataFrame(solfit)
 df.columns = dec_var
-print("Unsorted Population")
+print(f"{40 * "-"} Unsorted Population {40 * "-"}")
 print(df)
 
 sorted_firefly = df.sort_values("fitness")
-print("Sorted Population")
+print(f"\n{40 * "-"} Sorted Population {40 * "-"}")
 print(sorted_firefly)
 
 x_j_better = (list(sorted_firefly.iloc[0]))[0:dimension]
 x_i_notbetter = (list(sorted_firefly.iloc[pop_size - 1]))[0:dimension]
 
-print(f"More Attractive : {x_j_better}")
-print(f"Less Attractive : {x_i_notbetter}")
+print(f"\n{40*"-"} More Attractive {40*"-"}")
+print(f"Firefly {sorted_firefly.iloc[0].name} : {x_j_better}")
 
-summation = 0 # T
-attractiveness_param = 1    # Attractiveness param
-light_absorption_coeff = 1     # Light Absorption Coeff
+print(f"\n{40*"-"} Less Attractive {40*"-"}")
+print(f"Firefly {sorted_firefly.iloc[-1].name}: {x_i_notbetter}")
+
+summation = 0 
+attractiveness_param = 1    
+light_absorption_coeff = 1     
 levy_flight_param = 1       
 t = 1
-random_param = random.random() # Levy Flight Param
+random_param = random.random() 
 
 for k in range(dimension):
     summation = summation + ((x_j_better[k] - x_i_notbetter[k]) * (x_j_better[k] - x_i_notbetter[k]))
@@ -84,7 +84,9 @@ third_partial1 = random_param * sign
 third_term = [third_partial1 * i * t**(-levy_flight_param) for i in x_i_notbetter]
 
 new_pos = [a + b + c for a, b, c in zip(x_i_notbetter, second_term, third_term)]
+print(f"\n{40*"-"} (BEFORE) Less Attractive Firefly {40*"-"}")
 print(f"Old Position : {x_i_notbetter}")
 print(f"OLD Fitness Value : {griewank(x_i_notbetter)}")
+print(f"\n{40*"-"} (AFTER) Less Attractive Firefly {40*"-"}")
 print(f"New Position : {new_pos}")
 print(f"NEW Fitness Value : {griewank(new_pos)}")
