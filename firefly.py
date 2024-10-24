@@ -65,7 +65,7 @@ summation = 0
 random_param = random.random() 
 t = 1
 attractiveness_param = 2.0   
-levy_flight_param = 2.0       
+levy_flight_param = 10.0       
 light_absorption_coeff = 1.0     
 
 for k in range(dimension):
